@@ -1,0 +1,28 @@
+﻿$connection=mysqli_connect("localhost","root","","arsa");
+	mysqli_set_charset($connection,"utf8");
+	if(mysqli_connect_errno()){
+		
+			echo("اتصال به پایگاه داده با خطا مواجه شد");
+		}
+				else{
+
+ $re= mysqli_query($connection,"select * from setpassword where password ='$pass' and admin ='$user'  ");
+ $r=mysqli_fetch_array($re);
+				}
+	if($r !=0 || $w == "true"  ){
+		 
+ $selectall=  mysqli_query($connection,"SELECT first_name,last_name,city,ncheck,nphone,mac FROM `wp_wc_customer_lookup` ");
+		 
+	
+		}
+	
+	else{
+		print " <script>
+		window.location.href = 'bootstrap-5.0.0-beta2-examples/sign-in/index.php';
+		
+	alert (' ورود غیر مجاز')
+		
+		</script>";
+
+
+	}

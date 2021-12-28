@@ -1,0 +1,54 @@
+﻿$connection=mysqli_connect("localhost","root","","sp");
+mysqli_set_charset($connection,"utf8");
+if(mysqli_connect_errno())
+{
+	echo("<center>Error for connection to database<br>");
+	exit("Your Error is...".mysqli_connect_error()."</center>");
+	mysqli_close($connection);
+}
+else
+{
+$show=mysqli_query($connection,"select * from t");
+$res=mysqli_fetch_array($show);
+	if($res !=0)
+	{
+	
+	$r=mysqli_query($connection,"select * from t");
+	
+	}
+
+
+}
+
+<table class="table table-hover" align="center">
+    <thead>
+      <tr >
+        <th>Name</th>
+        <th>Family</th>
+        <th>Gender</th>
+          <th>E-mail</th>
+         
+        <th >Languages</th>
+         <th >Password</th>
+       
+      
+      </tr>
+    </thead>
+    <?php
+ 	while($rowselect=mysqli_fetch_array($r))
+	{
+		?>	
+    <tbody>
+    
+      <tr>
+        <td>   <input id="txtName" type="text" <?php print "readonly"; ?> value=<?php print $rowselect[0]; ?> class="form-control" name="txtName" readonly placeholder="Additional Info"></td>
+        <td><input id="txtLname" type="text" <?php print "readonly"; ?>  value=<?php print $rowselect[1]; ?> class="form-control"  name="txtLname" readonly placeholder="Additional Info"></td>
+        <td><input readonly id="txtNum" type="text" class="form-control" <?php print "readonly"; ?>  value=<?php print $rowselect[4]; ?> name="txtNum" placeholder="Additional Info"></td>
+           <td><input readonly id="txtCity" type="text" class="form-control" <?php print "readonly"; ?>  name="txtCity" value=<?php print $rowselect[2]; ?> placeholder="Additional Info"></td>
+
+
+        <td><input readonly id="txtMac" type="text" class="form-control" <?php print "readonly"; ?>  value=<?php print $rowselect[5]; ?> name="txtMac" placeholder="Additional Info"></td>
+         <td><input readonly id="txtMac" type="text" class="form-control" <?php print "readonly"; ?>  value=<?php print $rowselect[3]; ?> name="txtMac" placeholder="Additional Info"></td>
+  
+    </tbody>
+</table>
